@@ -36,7 +36,8 @@ class AIControlSystem:
             'folding_task': TaskAnalyzer.folding_task_analysis,
             'final_check_task': TaskAnalyzer.final_check_task_analysis
         }
-        
+        self.task_analysis_map.setdefault('unknown_task', lambda _: {'status': 'ERROR', 'details': 'Unknown task'})
+                
         # Reference to global order data
         global current_order_data
         self.order_data = current_order_data
