@@ -53,7 +53,7 @@ class AIControlSystem:
             self.channel.exchange_declare(exchange='NSU', exchange_type='direct')
             
             for queue_name in self.queues.values():
-                self.channel.queue_declare(queue=queue_name)
+                self.channel.queue_declare(queue=queue_name, durable=True)
                 self.channel.queue_bind(
                     exchange='NSU', 
                     queue=queue_name, 
