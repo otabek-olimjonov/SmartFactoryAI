@@ -14,7 +14,7 @@ A project to integrate AI control systems for smart factories. This project uses
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/otabek-olimjonov/SmartFactoryAI.git
    cd smart_factory_ai
    ```
 
