@@ -1,5 +1,5 @@
 .venv
 .env
-test.py
+# test.py
 *__pycache__
 app.log
