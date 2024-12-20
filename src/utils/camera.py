@@ -1,4 +1,5 @@
 import gxipy as gx
+from gxipy.gxidef import GxPixelFormatEntry, DxValidBit
 import numpy as np
 import cv2
 from ctypes import *
@@ -50,7 +51,6 @@ class GalaxyCamera:
 
     def _is_gray(self, pixel_format):
         """Check if the pixel format is grayscale."""
-        from gxipy.gxidef import GxPixelFormatEntry
         gray_formats = [
             GxPixelFormatEntry.MONO8,
             GxPixelFormatEntry.MONO10,
@@ -62,8 +62,6 @@ class GalaxyCamera:
 
     def _get_best_valid_bits(self, pixel_format):
         """Get the best valid bits for the given pixel format."""
-        from gxipy.gxidef import GxPixelFormatEntry, DxValidBit
-        
         if pixel_format in [GxPixelFormatEntry.MONO8, GxPixelFormatEntry.BAYER_GR8,
                            GxPixelFormatEntry.BAYER_RG8, GxPixelFormatEntry.BAYER_GB8,
                            GxPixelFormatEntry.BAYER_BG8, GxPixelFormatEntry.RGB8,
@@ -82,8 +80,6 @@ class GalaxyCamera:
     def _convert_to_rgb(self, raw_image):
         """Convert raw image to RGB format."""
         try:
-            from gxipy.gxidef import GxPixelFormatEntry
-            
             # Set conversion parameters
             self.image_convert.set_dest_format(GxPixelFormatEntry.RGB8)
             valid_bits = self._get_best_valid_bits(raw_image.get_pixel_format())
